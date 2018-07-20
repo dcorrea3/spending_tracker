@@ -1,0 +1,26 @@
+{% if all_spending_list %}
+<a href="/add_spend/"> add_spending</a>
+    <table>
+
+    {% for spending in all_spending_list %}
+        <tr>
+        	<td><a href="/spending/{{ spending.id }}/">{{ spending.spend_desc }}</a></td>
+        	<td>
+        		{{spending.spend_date}}
+        	</td>
+        	<td>
+        		{{spending.spend_amt}}
+        	</td>
+        	<td>
+        		{{spending.spend_vendor}}
+        	</td>
+        	<td>
+        		{{spending.spend_cat}}
+        	</td>
+        </tr>
+
+    {% endfor %}
+    </table>
+{% else %}
+    <p>Nothing spent.</p>
+{% endif %}

@@ -6,5 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.view_all_spending, name ='view_all_spending' ),
-    #path('', views.index, name='index'),
+    path('spending/',views.SpendingView.as_view(), name='spending'),
+    path('vendors/', views.VendorsView.as_view(),name = 'vendors'),
+    path('add_spend/',views.add_spend)
 ]
