@@ -1,0 +1,17 @@
+{% if all_categories_list %}
+<a href = "/add_category/"> add category </a>
+<table>
+	<th>
+		Category
+	</th>
+{% for x in all_categories_list %}
+	<tr><td>{{x.category_name}}</td></tr>
+{% endfor %}
+
+</table>
+
+{% else%}
+
+<p> No categories</p>
+
+{% endif %}

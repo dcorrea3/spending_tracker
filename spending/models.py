@@ -24,11 +24,15 @@ class Spending(models.Model):
 
 
 
-class VendorsForm(ModelForm):
+class AddVendorsForm(ModelForm):
 	class Meta:
 		model = Vendors
 		fields = ['vendor_name']
-	
+
+class AddCategoryForm(ModelForm):
+	class Meta:
+		model = SpendCategory
+		fields = ['category_name']
 
 
 class AddSpendingForm(ModelForm):
