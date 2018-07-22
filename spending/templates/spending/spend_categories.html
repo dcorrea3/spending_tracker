@@ -1,11 +1,14 @@
 {% if all_categories_list %}
 <a href = "/add_category/"> add category </a>
+<a href = "/spending/"> spending </a>
 <table>
 	<th>
 		Category
 	</th>
 {% for x in all_categories_list %}
-	<tr><td>{{x.category_name}}</td></tr>
+	<tr>
+		<td>{{x.category_name}}</td>
+	</tr>
 {% endfor %}
 
 </table>

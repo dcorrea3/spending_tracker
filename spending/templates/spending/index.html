@@ -1,10 +1,12 @@
 {% if all_spending_list %}
 <a href="/add_spend/"> add_spending</a>
+<a href="/add_vendor/"> add_vendor</a>
+<a href="/add_category/"> add_category</a>
     <table>
 
     {% for spending in all_spending_list %}
         <tr>
-        	<td><a href="/spending/{{ spending.id }}/">{{ spending.spend_desc }}</a></td>
+        	<td><a href="/edit_spend/{{ spending.id }}/">{{ spending.spend_desc }}</a></td>
         	<td>
         		{{spending.spend_date}}
         	</td>

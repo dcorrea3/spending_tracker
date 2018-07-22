@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
+from django.views.generic.edit import UpdateView
 
 from .models import Spending, Vendors, SpendCategory,AddSpendingForm, AddVendorsForm
 from .models import AddCategoryForm
@@ -26,6 +27,30 @@ def add_spend(request):
 	else:
 		form = AddSpendingForm()
 	return render(request, 'spending/add_spend.html',{'form':form})
+
+def edit_spend(request, spending_id):
+	instance = get_object_or_404(Spending, id = spending_id)
+	#a = Spending.objects.get(pk=spending_id)
+	form = AddSpendingForm(request.POST or None,instance=instance)
+	print(form.instance.id	)
+	if request.method == 'POST':
+
+		#form = AddSpendingForm(request.POST)
+		if form.is_valid():
+			spend = form.save(commit=False)
+			spend.spend_id = spending_id
+			spend.spend_vendor = Vendors.objects.get(pk= request.POST.get('spend_vendor'))
+			spend.spend_date = datetime.now()
+			spend.spend_desc = request.POST.get('spend_desc')
+			spend.spend_amt = request.POST.get('spend_amt')
+			spend.spend_cat = SpendCategory.objects.get(pk=request.POST.get('spend_cat'))
+			spend.save()
+		return HttpResponseRedirect('/spending/')
+
+	else:
+		form = AddSpendingForm(instance=instance)
+		#print(form)
+	return render(request, 'spending/edit_spend.html',{'form':form})
 
 
 def add_vendor(request):
