@@ -1,25 +1,38 @@
-{% if all_categories_list %}
-<a href = "/add_category/"> add category </a>
-<a href = "/spending/"> spending </a>
-<table>
-	<th>
-		Category
-	</th>
-{% for x in all_categories_list %}
-	<tr>
-		<td><a href = "/edit_category/{{x.id}}">
-		{{x.category_name}}</a></td>
-		<td>
-			<a href = "/delete_category/{{x.id}}">
-		x
-		</td>
-	</tr>
-{% endfor %}
+{% extends 'spending/base.html' %}
 
-</table>
+{% block content %}
 
-{% else%}
+	{% if all_categories_list %}
+	<!-- <a href = "/add_category/"> add category </a>
+	<a href = "/spending/"> spending </a> -->
+	<table class="table table-hover">
+		<thead>
+		<th>
+			Category
+		</th>
+		<th>
+			Delete?
+		</th>
+	</thead>
+	<tbody>
+	{% for x in all_categories_list %}
+		<tr>
+			<td><a href = "/edit_category/{{x.id}}">
+			{{x.category_name}}</a></td>
+			<td>
+				<a href = "/delete_category/{{x.id}}">
+					<button type="button" class="btn btn-danger">X</button>
+				</a>
+			</td>
+		</tr>
+	{% endfor %}
+</tbody>
+	</table>
 
-<p> No categories</p>
+	{% else%}
 
-{% endif %}
+	<p> No categories</p>
+
+	{% endif %}
+
+{% endblock%}

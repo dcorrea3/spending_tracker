@@ -40,4 +40,5 @@ class AddSpendingForm(ModelForm):
 		model = Spending
 		fields = ['spend_cat','spend_vendor','spend_desc','spend_amt' ]
 
+
 	 

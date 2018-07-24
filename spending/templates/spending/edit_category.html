@@ -1,6 +1,12 @@
-<form action = '/edit_category/{{form.instance.id}}/' method = "POST">
-	{% csrf_token %}
-	{{form}}
-	<input type = "submit" value = "submit">
+{% extends 'spending/base.html' %}
 
-</form>
+{% block content %}
+
+	<form action = '/edit_category/{{form.instance.id}}/' method = "POST">
+		{% csrf_token %}
+		{{form}}
+		<input type = "submit" value = "submit">
+
+	</form>
+
+{% endblock %}
