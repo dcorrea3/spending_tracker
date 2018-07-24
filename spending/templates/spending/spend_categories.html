@@ -7,7 +7,12 @@
 	</th>
 {% for x in all_categories_list %}
 	<tr>
-		<td>{{x.category_name}}</td>
+		<td><a href = "/edit_category/{{x.id}}">
+		{{x.category_name}}</a></td>
+		<td>
+			<a href = "/delete_category/{{x.id}}">
+		x
+		</td>
 	</tr>
 {% endfor %}
 

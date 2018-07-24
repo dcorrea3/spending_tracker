@@ -1,9 +1,26 @@
 {% if all_spending_list %}
 <a href="/add_spend/"> add_spending</a>
-<a href="/add_vendor/"> add_vendor</a>
-<a href="/add_category/"> add_category</a>
+<a href="/vendors/"> vendors</a>
+<a href="/categories/"> categories</a>
     <table>
-
+        <th>
+             Item
+            </th>
+                  <th>
+             Date
+            </th>
+                  <th>
+             Price
+            </th>
+                  <th>
+             Store
+            </th>
+                   <th>
+             Category
+            </th>
+                  <th>
+             Delete?
+            </th>
     {% for spending in all_spending_list %}
         <tr>
         	<td><a href="/edit_spend/{{ spending.id }}/">{{ spending.spend_desc }}</a></td>
@@ -19,6 +36,12 @@
         	<td>
         		{{spending.spend_cat}}
         	</td>
+
+            <td>
+                <a href="/delete_spend/{{spending.id}}">
+                    X
+                </a>
+            </td>
         </tr>
 
     {% endfor %}
