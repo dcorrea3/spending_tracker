@@ -13,10 +13,10 @@
              Date
         </th>
         <th>
-             Price
+             Cost
         </th>
         <th>
-             Store
+             Vendor
         </th>
         <th>
              Category
@@ -30,10 +30,10 @@
         <tr>
         	<td><a href="/edit_spend/{{ spending.id }}/">{{ spending.spend_desc }}</a></td>
         	<td>
-        		{{spending.spend_date}}
+        		{{spending.spend_date|date:"M d, Y" }}
         	</td>
         	<td>
-        		{{spending.spend_amt}}
+        		${{spending.spend_amt}}
         	</td>
         	<td>
         		{{spending.spend_vendor}}

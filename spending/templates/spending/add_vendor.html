@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<form action = '/add_vendor/' method="post" class="post-form">
+<form action = '/add_vendor/' method="post" >
 	{% csrf_token %}
 	<div class = "form-group">
-	{{ form }}
+	{{ form.as_p }}
 
 
 	<input type = "submit" value = "submit">

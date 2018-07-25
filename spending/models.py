@@ -28,17 +28,28 @@ class AddVendorsForm(ModelForm):
 	class Meta:
 		model = Vendors
 		fields = ['vendor_name']
+		labels = {
+            "vendor_name": "Vendor",
+        }
 
 class AddCategoryForm(ModelForm):
 	class Meta:
 		model = SpendCategory
 		fields = ['category_name']
-
+		labels = {
+		"category_name" : "Category", 
+		}
 
 class AddSpendingForm(ModelForm):
 	class Meta:
 		model = Spending
 		fields = ['spend_cat','spend_vendor','spend_desc','spend_amt' ]
-
+		labels = {
+		'spend_cat':'Category',
+		'spend_vendor':'Vendor',
+		'spend_desc':'Description',
+		'spend_amt':'Cost',
+		
+		}
 
 	 
